@@ -1,0 +1,23 @@
+name: Continuous Integration # Workflow Names
+on: [pull_request] # Trigger Workflow on pull_request
+
+jobs: # Jobs that are triggered on once a pull request is created
+  build:   
+    runs-on: ubuntu-latest # Running in a virtual machine | ubuntu
+    steps:
+      - run: echo "The job was automatically triggered by a ${{ github.event_name }} event."
+      - name: Check out repository code # Checking out code
+        uses: actions/checkout@v3
+      - name: Installing Node.js v12 # Installing Node
+        uses: actions/setup-node@v3
+        with:
+          node-version:'12'
+          architecture: 'x64'
+          cache: 'npm'
+      - name: Installing Dependencies 
+      - run: npm install
+      - name: Running Test
+      - run : npm test
+      - name: Building Static Production Build
+      - run: npm build
+
