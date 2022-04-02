@@ -11,13 +11,12 @@ jobs: # Jobs that are triggered on once a pull request is created
       - name: Installing Node.js v12 # Installing Node
         uses: actions/setup-node@v3
         with:
-          node-version:'12'
-          architecture: 'x64'
+          node-version: '12'
           cache: 'npm'
       - name: Installing Dependencies 
-      - run: npm install
+        run: npm install
       - name: Running Test
-      - run : npm test
+        run : npm test
       - name: Building Static Production Build
-      - run: npm build
+        run: npm build
 
