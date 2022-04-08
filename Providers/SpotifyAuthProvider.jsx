@@ -1,25 +1,23 @@
 import { useContext, createContext, useState, useEffect } from "react";
 
-const SpotifyAuthContext = createContext("");
-
 function getStorageValue(key) {
   if (typeof window !== "undefined") {
     // getting stored value
     const saved = localStorage.getItem(key);
-    const initial = JSON.parse(saved);
-    return initial;
+    return saved ??  ""
   }
 }
 
+const SpotifyAuthContext = createContext();
 
-
-export const SpotifyAuthProvider = ({ children, value }) => {
+export const SpotifyAuthProvider = ({ children }) => {
   const [token, setToken] = useState("");
+
   useEffect(() => {
     let tokenFromStorage = getStorageValue("token");
     setToken(tokenFromStorage);
-  });
-  
+  },[token]);
+
   return (
     <SpotifyAuthContext.Provider value={{ token, setToken }}>
       {children}
@@ -39,17 +37,8 @@ export const useSpotifyContext = () => {
   return [token, setToken];
 };
 
-export const isUserLoggedIn = () => {
-  const [token,] = useSpotifyContext();
-  if (token && typeof token === "string" && token.length > 0) {
-    return true; // user fetch
-  }
-
-  return false;
-};
 
 export default {
-  isUserLoggedIn,
   SpotifyAuthProvider,
   useSpotifyContext,
 };

@@ -1,13 +1,30 @@
-import { isUserLoggedIn, useSpotifyContext } from "../Providers/SpotifyAuthProvider";
+import {
+  useSpotifyContext,
+} from "../Providers/SpotifyAuthProvider";
+import Router from "next/router";
+import { useEffect } from "react";
 
 export default function Home() {
-  let active = isUserLoggedIn();
-  
-  if(!active){
-    return "not loggedin"
+  const [token, setToken] = useSpotifyContext();  
+
+  useEffect( () => {
+    if(!token){
+      Router.push("/login"); // No token Redirect
+      console.log("Wattt")
+    }
+  },[token])
+
+
+  const logout = () => {
+    localStorage.removeItem("token");
+    setToken("");
+    Router.push('/login');
   }
 
   return (
-    <h1>testing</h1>
-  )
+    <>
+       <button onClick={logout}>Logout</button>
+       <h1>Token: {token}</h1>
+    </>
+  );
 }
