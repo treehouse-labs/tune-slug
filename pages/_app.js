@@ -1,7 +1,14 @@
-import '../styles/globals.css'
+import "../styles/globals.css";
+import { SpotifyAuthProvider } from "../Providers/SpotifyAuthProvider";
+//import {  } from "../hooks/useLocalStorage";
+import { useState, useEffect } from "react";
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+function App({ Component, pageProps }) {
+  return (
+    <SpotifyAuthProvider>
+      <Component {...pageProps} />
+    </SpotifyAuthProvider>
+  );
 }
 
-export default MyApp
+export default App;
