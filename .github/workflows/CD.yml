@@ -27,4 +27,4 @@ jobs: # Jobs that are triggered on once a pull request is created
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
       - name: 🚀 Deploy S3 
-        run: aws s3 sync ./out s3://[tune-slug-dev-mode]
+        run: aws s3 sync ./out s3://[tune-slug]
