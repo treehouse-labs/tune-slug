@@ -18,7 +18,7 @@ jobs: # Jobs that are triggered on once a pull request is created
       - name: Running Test
         run: npm run test
       - name: Building Static Production Build
-        run: npm run build
+        run: npm run build:staging
       - uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
