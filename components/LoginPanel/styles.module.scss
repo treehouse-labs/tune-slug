@@ -1,0 +1,17 @@
+.loginPanel{
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  a{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 200px;
+      width: 200px;
+      border: 2px solid #333;
+      border-radius: 5px;
+      box-shadow: 5px 10px;
+  }
+}

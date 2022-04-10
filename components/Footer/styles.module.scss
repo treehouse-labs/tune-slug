@@ -1,0 +1,16 @@
+.footer{
+    display: flex;
+    align-items: center;
+    background-color: black;
+    color: white;
+    height: 10vh;
+    
+    img{
+        height: 100%;
+    }
+
+    p{
+        font-size: 12px;
+        font-weight: 500;
+    }
+}

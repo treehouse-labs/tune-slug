@@ -1,5 +1,8 @@
-name: Continuous Integration # Workflow Names
-on: [pull_request] # Trigger Workflow on pull_request
+name: Continuous Deployment # Workflow Names
+on: 
+  push:
+    branches:
+      - main
 
 jobs: # Jobs that are triggered on once a pull request is created
   build:
@@ -14,14 +17,14 @@ jobs: # Jobs that are triggered on once a pull request is created
           node-version: "12"
           cache: "npm"
       - name: Installing Dependencies
-        run: npm run ci
       - name: Running Test
-        run: npm run test
+        run: npm test
       - name: Building Static Production Build
-        run: npm run build
+        run: npm build
       - uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
-      - run: aws s3 sync ./out s3://[bucket-name]
+      - name: 🚀 Deploy S3 
+        run: aws s3 sync ./out s3://[tune-slug-dev-mode]
