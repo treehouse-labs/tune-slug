@@ -5,7 +5,7 @@ const LoginPanel = ({}) => {
   const REDIRECT_URI = process.env.NEXT_PUBLIC_SPOTIFY_AUTH_REDIRECT;
   const AUTH_ENDPOINT = process.env.NEXT_PUBLIC_SPOTIFY_AUTH_ENDPOINT;
   const RESPONSE_TYPE = "token";
-  
+  console.log(CLIENT_ID, REDIRECT_URI, AUTH_ENDPOINT)
   return (
     <section className={style.loginPanel}>
       <a
