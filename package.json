@@ -5,13 +5,12 @@
   "scripts": {
     "dev": "next dev",
     "build:prod": "next build && next export",
-    "build:staging": "env-cmd -f  .env.dev next build && next export",
+    "build:staging": "next build && next export",
     "start": "next start",
     "test": "next lint",
     "lint": "next lint"
   },
   "dependencies": {
-    "env-cmd": "^10.1.0",
     "next": "12.1.4",
     "react": "18.0.0",
     "react-dom": "18.0.0"
