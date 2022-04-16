@@ -20,9 +20,7 @@ const Auth = ({}) => {
     const [, setToken] = useSpotifyContext();
 
     useEffect( () => {
-        if(!window.location.hash){
-            console.log("empty")
-        } else {
+        if(window.location.hash){
             let {access_token} = getTokenFromResponse();
             if(!access_token){
                 Router.push('/login');

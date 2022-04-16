@@ -29,7 +29,6 @@ export default function Home() {
           if (res?.error) {
             setError(res);
           } else {
-            console.log(res);
             setUser(res);
           }
         })

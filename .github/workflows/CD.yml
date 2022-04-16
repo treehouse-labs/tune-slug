@@ -1,11 +1,8 @@
-name: Continuous Integration # Workflow Names
-on: [pull_request] # Trigger Workflow on pull_request
-
-
-env:
-  CLIENT_ID: ${{ secrets.CLIENT_ID }}
-  REDIRECT: ${{ secrets.PROD_REDIRECT }}
-  ENDPOINT: ${{ secrets.ENDPOINT }}
+name: Continuous Deployment # Workflow Names
+on: 
+  push:
+    branches:
+      - main
 
 jobs: # Jobs that are triggered on once a pull request is created
   build:
@@ -20,16 +17,14 @@ jobs: # Jobs that are triggered on once a pull request is created
           node-version: "12"
           cache: "npm"
       - name: Installing Dependencies
-        run: npm install
       - name: Running Test
-        run: npm run test
+        run: npm test
       - name: Building Static Production Build
-        run: npm run build
+        run: npm build
       - name: Vercel Action
         uses: amondnet/vercel-action@v20.0.1
         with:
-            vercel-token: ${{ secrets.VERCEL_TOKEN }} # Required
-            vercel-org-id: ${{ secrets.ORG_ID}}  #Required
-            vercel-project-id: ${{ secrets.PROJECT_ID}} #Required
-            vercel-args: '--prod' 
-            working-directory: ./
+          vercel-token: ${{ secrets.VERCEL_TOKEN }} # Required
+          vercel-org-id: ${{ secrets.ORG_ID}}  #Required
+          vercel-project-id: ${{ secrets.PROJECT_ID}} #Required 
+          working-directory: .out
