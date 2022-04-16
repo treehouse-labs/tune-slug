@@ -1,11 +1,11 @@
 import style from "./styles.module.scss";
 
 const LoginPanel = ({}) => {
-  const CLIENT_ID = process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID;
-  const REDIRECT_URI = process.env.NEXT_PUBLIC_SPOTIFY_AUTH_REDIRECT;
-  const AUTH_ENDPOINT = process.env.NEXT_PUBLIC_SPOTIFY_AUTH_ENDPOINT;
+  const CLIENT_ID = process.env.CLIENT_ID;
+  const REDIRECT_URI = process.env.REDIRECT;
+  const AUTH_ENDPOINT = process.env.ENDPOINT;
   const RESPONSE_TYPE = "token";
-  console.log(CLIENT_ID, REDIRECT_URI, AUTH_ENDPOINT)
+
   return (
     <section className={style.loginPanel}>
       <a
