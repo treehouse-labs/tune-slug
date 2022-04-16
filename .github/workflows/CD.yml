@@ -21,10 +21,9 @@ jobs: # Jobs that are triggered on once a pull request is created
         run: npm test
       - name: Building Static Production Build
         run: npm build
-      - uses: aws-actions/configure-aws-credentials@v1
+      - name: Vercel Action
+        uses: amondnet/vercel-action@v20.0.1
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-1
-      - name: 🚀 Deploy S3 
-        run: aws s3 sync ./out s3://[tune-slug]
+          vercel-token: ${{ secrets.VERCEL_TOKEN }} # Required
+          vercel-org-id: ${{ secrets.ORG_ID}}  #Required
+          vercel-project-id: ${{ secrets.PROJECT_ID}} #Required 

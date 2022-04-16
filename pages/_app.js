@@ -4,11 +4,6 @@ import {useRouter} from 'next/router';
 import { useState, useEffect } from "react";
 
 function App({ Component, pageProps }) {
-  const router = useRouter();
-  const path = (/#!(\/.*)$/.exec(router.asPath) || [])[1];
-  if (path) {
-    router.replace(path);
-  }
 
   return (
     <SpotifyAuthProvider>
