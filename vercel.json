@@ -5,6 +5,6 @@
       "enabled": false
     },
     "builds": [
-        { "src": "{{Source for distribution}}", "use": "@vercel/static" }
+        { "src": "./out", "use": "@vercel/static" }
     ]
   }
