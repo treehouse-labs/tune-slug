@@ -32,3 +32,5 @@ jobs: # Jobs that are triggered on once a pull request is created
             vercel-org-id: ${{ secrets.ORG_ID}}  #Required
             vercel-project-id: ${{ secrets.PROJECT_ID}} #Required
             working-directory: ./out
+            alias-domains: |
+            staging.tune-slug.vercel.app
