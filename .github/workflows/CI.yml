@@ -24,7 +24,7 @@ jobs: # Jobs that are triggered on once a pull request is created
       - name: Running Test
         run: npm run test
       - name: Building Static Production Build
-        run: npm run build:staging
+        run: npm run build
       - name: Vercel Action
         uses: amondnet/vercel-action@v20.0.1
         with:
