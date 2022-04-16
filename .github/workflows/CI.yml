@@ -26,8 +26,8 @@ jobs: # Jobs that are triggered on once a pull request is created
       - name: Building Static Production Build
         run: npm run build:staging
       - name: Vercel Action
-          uses: amondnet/vercel-action@v20.0.1
-          with:
+        uses: amondnet/vercel-action@v20.0.1
+        with:
             vercel-token: ${{ secrets.VERCEL_TOKEN }} # Required
             vercel-org-id: ${{ secrets.ORG_ID}}  #Required
             vercel-project-id: ${{ secrets.PROJECT_ID}} #Required 
