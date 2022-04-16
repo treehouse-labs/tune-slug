@@ -1,6 +1,12 @@
 name: Continuous Integration # Workflow Names
 on: [pull_request] # Trigger Workflow on pull_request
 
+
+env:
+  CLIENT_ID: ${{ secrets.CLIENT_ID }}
+  REDIRECT: ${{ secrets.PROD_REDIRECT }}
+  ENDPOINT: ${{ secrets.ENDPOINT }}
+
 jobs: # Jobs that are triggered on once a pull request is created
   build:
     runs-on: ubuntu-latest # Running in a virtual machine | ubuntu

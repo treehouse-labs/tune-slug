@@ -1,9 +1,9 @@
 const Page = ({}) => {
     return(
         <div>
-           {process.env.SPOTIFY_CLIENT_ID}
-           {process.env.SPOTIFY_AUTH_REDIRECT}
-           {process.env.SPOTIFY_AUTH_ENDPOINT}
+           {process.env.CLIENT_ID}
+           {process.env.REDIRECT}
+           {process.env.ENDPOINT}
            {process.env.MY_VAR}
         </div>
     )
