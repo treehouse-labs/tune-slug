@@ -32,4 +32,4 @@ jobs: # Jobs that are triggered on once a pull request is created
             vercel-org-id: ${{ secrets.ORG_ID}}  #Required
             vercel-project-id: ${{ secrets.PROJECT_ID}} #Required
             vercel-args: '--prod' 
-            working-directory: .next
+            working-directory: ./
